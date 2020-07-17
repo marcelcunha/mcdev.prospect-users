@@ -1,3 +1,3 @@
 <?php
 
-Route::resource('candidate-user', 'CandidateUserController');
+Route::resource('prospect-user', 'ProspectUserController');
