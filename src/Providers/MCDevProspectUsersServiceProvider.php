@@ -3,7 +3,7 @@
 namespace MCDev\ProspectUsers\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use MCDev\ProspectUsers\Console\Commands\AuthInstallCommand;
+use MCDev\ProspectUsers\Console\Commands\ProspectUserInstallCommand;
 
 class MCDevProspectUsersServiceProvider extends ServiceProvider
 {
@@ -16,7 +16,7 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-               AuthInstallCommand::class
+               ProspectUserInstallCommand::class
             ]);
         }
     }

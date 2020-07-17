@@ -27,7 +27,7 @@ class CandidateUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('')
     }
 
     /**
