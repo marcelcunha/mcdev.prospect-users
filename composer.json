@@ -1,0 +1,21 @@
+{
+    "name": "mcdev/prospect-users",
+    "authors": [
+        {
+            "name": "Marcel Cunha",
+            "email": "marcel.cunha.mc@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MCDev\\ProspectUsers\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MCDev\\ProspectUsers\\Providers\\MCDevProspectUsersServiceProvider"
+            ]
+        }
+    }
+}
