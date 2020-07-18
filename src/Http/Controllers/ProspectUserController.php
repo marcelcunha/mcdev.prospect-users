@@ -27,7 +27,7 @@ class CandidateUserController extends Controller
      */
     public function create()
     {
-        return view('')
+        return view('');
     }
 
     /**
@@ -38,13 +38,13 @@ class CandidateUserController extends Controller
      */
     public function store(ProspectRequest $request)
     {
-        $candidate = $request->except('_token');
-        $candidate['token'] = Str::random(60);
-        $candidate['expire'] = Carbon::now()->addHours(8);
+        $prospect = $request->except('_token');
+        $prospect['token'] = Str::random(60);
+        $prospect['expire'] = Carbon::now()->addHours(8);
 
-        $candidate =  ProspectUser::create($candidate);
+        $prospect =  ProspectUser::create($prospect);
 
-        $candidate->sendEmailNotification();
+        $prospect->sendEmailNotification();
 
     }
 

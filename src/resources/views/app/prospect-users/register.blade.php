@@ -3,6 +3,7 @@
         Registro de Usuário
     </div>
     <form action="{{route('prospect-user.create')}}" method="post">
+        @csrf
         <div class="card-body">
             <div class="form-group">
                 <label for="name">Nome</label>
