@@ -24,7 +24,7 @@ class ProspectRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
+            'name' => ['required', 'string'],
             'email' => ['required', 'unique:prospect_users', 'unique:users'],
         ];
     }

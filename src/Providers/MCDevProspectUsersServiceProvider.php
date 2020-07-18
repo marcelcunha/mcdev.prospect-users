@@ -3,7 +3,9 @@
 namespace MCDev\ProspectUsers\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use MCDev\ProspectUsers\Models\ProspectUser;
 use MCDev\ProspectUsers\Console\Commands\ProspectUserInstallCommand;
+use MCDev\ProspectUsers\Observers\ProspectUserObserver;
 
 class MCDevProspectUsersServiceProvider extends ServiceProvider
 {
@@ -16,7 +18,7 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-               ProspectUserInstallCommand::class
+                ProspectUserInstallCommand::class
             ]);
         }
     }
@@ -28,13 +30,14 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        ProspectUser::observe(ProspectUserObserver::class);
 
-
+        $this->loadViewsFrom(__DIR__.'/../resources/views/app/prospect-users', 'prospect-users');
         $this->publishes(
             [
                 __DIR__ . '/../database/migrations/' => database_path('migrations'),
                 __DIR__ . '/../Http/Controllers/' => 'app/Http/Controllers',
-                __DIR__ . '/../Models/' => 'app/Models',
+
             ],
             'all'
         );
