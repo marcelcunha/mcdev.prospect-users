@@ -9,7 +9,8 @@
             <div class="form-group">
                 <label for="name">Nome</label>
                 <input type="text" name="name" class="form-control
-            @error('name') is-invalid @enderror" required value="{{old('name')}}">
+            @error('name') is-invalid @enderror"
+            required value="{{old('name')}}">
                 @error ('name')
                 <div class="invalid-feedback">
                     {{$message}}
