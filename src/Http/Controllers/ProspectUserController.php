@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProspectUser;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use MCDev\ProspectUsers\Models\ProspectUser;
 use MCDev\ProspectUsers\Http\Requests\ProspectRequest;
 
-class CandidateUserController extends Controller
+class ProspectUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class CandidateUserController extends Controller
      */
     public function create()
     {
-        return view('');
+        return view('prospect-users::register');
     }
 
     /**
