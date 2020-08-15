@@ -1,2 +1,2 @@
 
-Route::resource('prospect-user','ProspectUserController');
+Route::resource('RESOURCE','ProspectUserController');

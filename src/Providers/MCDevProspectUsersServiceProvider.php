@@ -17,7 +17,7 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '../config/prospect.php',
+            __DIR__ . '/../config/prospect.php',
             'prospect'
         );
         if ($this->app->runningInConsole()) {
@@ -45,6 +45,10 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
             ],
             'all'
         );
+        $this->publishes([
+            __DIR__ . '/../config/prospect.php',
+            config_path('prospect')
+        ], 'config');
     }
 
     /**

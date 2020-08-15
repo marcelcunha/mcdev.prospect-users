@@ -41,9 +41,11 @@ class ProspectUserInstallCommand extends Command
         Artisan::call('vendor:publish', ['--tag'=>'all']);
         $this->info('Migrations, Models e Controllers publicados!');
 
+        $file = file_get_contents(__DIR__.'/Stubs/routes.stub');
+
         file_put_contents(
             base_path('routes/web.php'),
-            file_get_contents(__DIR__.'/Stubs/routes.stub'),
+            preg_replace('/RESOURCE/', config('prospect.resource', 'prospect'), $file),
             FILE_APPEND
         );
     }
