@@ -43,9 +43,6 @@ class ProspectUserController extends Controller
         $prospect['expire'] = Carbon::now()->addHours(8);
 
         $prospect =  ProspectUser::create($prospect);
-
-        $prospect->sendEmailNotification();
-
     }
 
     /**
