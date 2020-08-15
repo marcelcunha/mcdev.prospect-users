@@ -16,6 +16,10 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/prospect.php',
+            'prospect'
+        );
         if ($this->app->runningInConsole()) {
             $this->commands([
                 ProspectUserInstallCommand::class
@@ -32,7 +36,7 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
     {
         ProspectUser::observe(ProspectUserObserver::class);
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views/app/prospect-users', 'prospect-users');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views/app/prospect-users', 'prospect-users');
         $this->publishes(
             [
                 __DIR__ . '/../database/migrations/' => database_path('migrations'),
@@ -41,6 +45,10 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
             ],
             'all'
         );
+        $this->publishes([
+            __DIR__ . '/../config/prospect.php',
+            config_path('prospect')
+        ], 'config');
     }
 
     /**
