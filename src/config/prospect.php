@@ -5,6 +5,7 @@ return [
 
     'model' => [
         'user-model' => App\Models\User::class,
-        'create-route' => 'user.create'
+        'create-route' => 'user.create',
+        'notification_class' => \MCDev\ProspectUsers\Notifications\ProspectUserNotification::class
     ]
 ];
