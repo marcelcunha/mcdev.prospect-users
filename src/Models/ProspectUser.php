@@ -14,7 +14,7 @@ class ProspectUser extends Model
 
     public function sendEmailNotification()
     {
-        $class = config('prospect.notification_classs');
+        $class = config('prospect.notification_class');
 
         $this->notify(new $class($this->token));
     }
