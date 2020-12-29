@@ -1,2 +1,2 @@
-
+Route::get('RESOURCE/resend/{prospect}', 'ProspectUserController@resend')->name('prospect.resend');
 Route::resource('RESOURCE','ProspectUserController');

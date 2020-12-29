@@ -45,7 +45,7 @@ class ProspectUserInstallCommand extends Command
 
         file_put_contents(
             base_path('routes/web.php'),
-            preg_replace('/RESOURCE/', config('prospect.resource', 'prospect'), $file),
+            preg_replace('/RESOURCE/', config('prospect.resource', 'prospects'), $file),
             FILE_APPEND
         );
     }
