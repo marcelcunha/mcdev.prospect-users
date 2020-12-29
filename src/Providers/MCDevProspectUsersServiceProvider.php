@@ -3,11 +3,10 @@
 namespace MCDev\ProspectUsers\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use MCDev\ProspectUsers\Models\ProspectUser;
 use MCDev\ProspectUsers\Console\Commands\ProspectUserInstallCommand;
 use MCDev\ProspectUsers\Events\ProspectUserEvent;
 use MCDev\ProspectUsers\Listeners\ProspectUserListener;
-use MCDev\ProspectUsers\Observers\ProspectUserObserver;
+
 
 class MCDevProspectUsersServiceProvider extends ServiceProvider
 {
