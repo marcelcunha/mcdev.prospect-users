@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use MCDev\ProspectUsers\Events\ProspectUserEvent;
@@ -75,6 +76,12 @@ class ProspectUserController extends Controller
         $prospect->token = Str::random(60);
         $prospect->expire = Carbon::now()->addHours(8);
         $prospect->save();
-        event(new ProspectUserEvent($prospect));
+
+        try {
+            event(new ProspectUserEvent($prospect));
+        } catch (Exception $e) {
+            $prospect->delete();
+            throw $e;
+        }
     }
 }
