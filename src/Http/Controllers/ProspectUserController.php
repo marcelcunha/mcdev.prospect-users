@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use MCDev\ProspectUsers\Events\ProspectUserEvent;
 use MCDev\ProspectUsers\Models\ProspectUser;
 use MCDev\ProspectUsers\Http\Requests\ProspectRequest;
 
@@ -43,6 +44,8 @@ class ProspectUserController extends Controller
         $prospect['expire'] = Carbon::now()->addHours(8);
 
         $prospect =  ProspectUser::create($prospect);
+
+        event(new ProspectUserEvent($prospect));
     }
 
     /**
@@ -57,29 +60,6 @@ class ProspectUserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ProspectUser  $ProspectUser
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ProspectUser $ProspectUser)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ProspectUser  $ProspectUser
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ProspectUser $ProspectUser)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\ProspectUser  $ProspectUser
@@ -88,5 +68,13 @@ class ProspectUserController extends Controller
     public function destroy(ProspectUser $ProspectUser)
     {
         //
+    }
+
+    public function resend(ProspectUser $prospect)
+    {
+        $prospect->token = Str::random(60);
+        $prospect->expire = Carbon::now()->addHours(8);
+        $prospect->save();
+        event(new ProspectUserEvent($prospect));
     }
 }
