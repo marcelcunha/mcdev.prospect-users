@@ -17,7 +17,6 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(ProspectEventServiceProvider::class);
         $this->mergeConfigFrom(
             __DIR__ . '/../config/prospect.php',
             'prospect'
