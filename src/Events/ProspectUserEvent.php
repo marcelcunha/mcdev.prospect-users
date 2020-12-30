@@ -15,7 +15,7 @@ class ProspectUserEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    private $prospect;
+    public $prospect;
     /**
      * Create a new event instance.
      *
