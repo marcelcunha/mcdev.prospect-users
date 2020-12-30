@@ -5,8 +5,9 @@ namespace MCDev\ProspectUsers\Providers;
 use Illuminate\Support\ServiceProvider;
 use MCDev\ProspectUsers\Console\Commands\ProspectUserInstallCommand;
 use MCDev\ProspectUsers\Events\ProspectUserEvent;
+use MCDev\ProspectUsers\Events\UserCreatedEvent;
 use MCDev\ProspectUsers\Listeners\ProspectUserListener;
-
+use MCDev\ProspectUsers\Listeners\UserCreatedListener;
 
 class MCDevProspectUsersServiceProvider extends ServiceProvider
 {
@@ -58,6 +59,9 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
     protected $listen = [
         ProspectUserEvent::class => [
             ProspectUserListener::class
+        ],
+        UserCreatedEvent::class =>[
+            UserCreatedListener::class
         ]
     ];
 }
