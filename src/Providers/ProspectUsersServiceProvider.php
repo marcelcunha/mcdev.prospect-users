@@ -47,9 +47,10 @@ class ProspectUsersServiceProvider extends ServiceProvider
             ],
             'all'
         );
+
         $this->publishes([
-            __DIR__ . '/../config/prospect.php',
-            config_path('prospect')
+            __DIR__ . '/../config/prospect.php' =>
+            config_path('prospect.php')
         ], 'config');
     }
 
