@@ -14,7 +14,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MCDev\\ProspectUsers\\Providers\\MCDevProspectUsersServiceProvider"
+                "MCDev\\ProspectUsers\\Providers\\ProspectUsersServiceProvider"
             ]
         }
     }
