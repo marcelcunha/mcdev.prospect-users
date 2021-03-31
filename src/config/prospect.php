@@ -10,4 +10,8 @@ return [
     ],
 
     'route_file_path' => 'routes/web.php',
+
+    'expires_in' => 8,
+
+    
 ];
