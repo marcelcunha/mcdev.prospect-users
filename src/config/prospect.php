@@ -5,9 +5,9 @@ return [
     'notification_class' => \MCDev\ProspectUsers\Notifications\ProspectUserNotification::class,
 
     'model' => [
-        'user-model' => App\Models\User::class,
-        'create-route' => 'user.create',
+        'user_model' => App\Models\User::class,
+        'create_route' => 'user.create',
     ],
 
-    'route-file-path' => 'routes/web.php',
+    'route_file_path' => 'routes/web.php',
 ];
