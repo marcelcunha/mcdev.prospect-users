@@ -44,7 +44,7 @@ class ProspectUserInstallCommand extends Command
         $file = file_get_contents(__DIR__.'/Stubs/routes.stub');
 
         file_put_contents(
-            base_path('routes/web.php'),
+            base_path(config('prospect', 'route.file.path')),
             preg_replace('/RESOURCE/', config('prospect.resource', 'prospects'), $file),
             FILE_APPEND
         );

@@ -9,7 +9,7 @@ use MCDev\ProspectUsers\Events\UserCreatedEvent;
 use MCDev\ProspectUsers\Listeners\ProspectUserListener;
 use MCDev\ProspectUsers\Listeners\UserCreatedListener;
 
-class MCDevProspectUsersServiceProvider extends ServiceProvider
+class ProspectUsersServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -37,10 +37,12 @@ class MCDevProspectUsersServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views/app/prospect-users', 'prospect-users');
+        
         $this->publishes(
             [
                 __DIR__ . '/../database/migrations/' => database_path('migrations'),
                 __DIR__ . '/../Http/Controllers/' => 'app/Http/Controllers',
+                __DIR__ . '/../config/' => config_path(),
 
             ],
             'all'

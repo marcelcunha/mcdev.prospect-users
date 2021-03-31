@@ -42,7 +42,7 @@ class ProspectUserController extends Controller
     {
         $prospect = $request->except('_token');
         $prospect['token'] = Str::random(60);
-        $prospect['expire'] = Carbon::now()->addHours(8);
+        $prospect['expire'] = Carbon::now()->addHours(config('prospect', 'expires_in'));
 
         $prospect =  ProspectUser::create($prospect);
 
